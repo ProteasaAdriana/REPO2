@@ -7,25 +7,21 @@
 <style>
 	
 
-	.tabela1
-{
-	border: 2px solid #339999;
-	border-collapse: collapse;
-	
-	text-align: left;
-	
-	width: 40%;
-	float: left;
-	text-shadow: 0.1em 0.1em 0.1em black;
-	box-shadow: black 0.5em 0.5em 0.3em;
+	.tabela1{
 
-}
+		border: 2px solid #339999;
+		border-collapse: collapse;
+		text-align: left;	
+		width: 40%;
+		float: left;
+		text-shadow: 0.1em 0.1em 0.1em black;
+		box-shadow: black 0.5em 0.5em 0.3em;
+	}
 
 	.tabela1 td, th{
-
-	padding: 8px 12px;
-	border-bottom: 1px solid #339999;
-}
+		padding: 8px 12px;
+		border-bottom: 1px solid #339999;
+	}
 
 	
 	.tabela1 thead tr {
@@ -33,17 +29,10 @@
 		font-weight: bold;
 		font-style: italic bold;
 		text-align: center;
-		
-
-
-
-
 	}
 	.tabela1 thead tr th{
 		vertical-align: middle;
 		text-align: center;
-
-
 	}
 	 
 		
@@ -56,27 +45,33 @@
 		text-shadow: 0.1em 0.1em 0.2em black;
 		color: black;
 	}
- form{
- 	display: block;
- }
-label{
-	 font-style: bold;
- 	display: block;
- 	width: 100px;
- }
- input{
 
- 	width: 100px;
- }
+
+	 form{
+ 		display: block;
+ 	}
+
+
+	label{
+	 	font-style: bold;
+ 		display: block;
+ 		width: 100px;
+ 	}
+
+
+ 	input{
+		width: 100px;
+ 	}
+
 
 </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>
 
 	$(function(){
-			var stergeCelule=function(){
-				$(this).html(' ');
-			var non_empty_cell = 0;
+		var stergeCelule=function(){
+			$(this).html(' ');
+		var non_empty_cell = 0;
 			$(this).siblings().each(function(){
 				if ($(this).html() !== ' '){
 					non_empty_cell++;
@@ -89,11 +84,11 @@ label{
 		};
 	$('#form1').submit(function(e){
 		e.preventDefault();
-		var anume=$('#nume').val();
-		var apren=$('#prenume').val();
-		var afac=$('#facultate').val();
+		var nume=$('#nume').val();
+		var prenume=$('#prenume').val();
+		var facultate=$('#facultate').val();
 		
-		$('tbody tr:last').after('<tr>'+'<td>'+anume+'</td>'+'<td>'+apren+'</td>'+'<td>'+afac+'</td>'+'</tr>');
+		$('tbody tr:last').after('<tr>'+'<td>'+nume+'</td>'+'<td>'+prenume+'</td>'+'<td>'+facultate+'</td>'+'</tr>');
 
 		$('td').click(stergeCelule);
 	});
