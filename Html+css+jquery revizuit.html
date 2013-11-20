@@ -72,7 +72,21 @@ label{
 </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>
-$(function(){
+
+	$(function(){
+			var stergeCelule=function(){
+				$(this).html(' ');
+			var non_empty_cell = 0;
+			$(this).siblings().each(function(){
+				if ($(this).html() !== ' '){
+					non_empty_cell++;
+				}
+
+			});
+			if(non_empty_cell === 0){
+				$(this).parent().remove();
+			}
+		};
 	$('#form1').submit(function(e){
 		e.preventDefault();
 		var anume=$('#nume').val();
@@ -81,17 +95,13 @@ $(function(){
 		
 		$('tbody tr:last').after('<tr>'+'<td>'+anume+'</td>'+'<td>'+apren+'</td>'+'<td>'+afac+'</td>'+'</tr>');
 
-		$('td').click(function(){
-		$(this).html(' ');
-		s})
-		
+		$('td').click(stergeCelule);
+	});
 
+	$('td').click(stergeCelule);
 		
-	})
-
-	
-	
-})
+		
+});
 
 </script>
 </head>
