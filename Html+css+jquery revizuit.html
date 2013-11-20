@@ -69,7 +69,7 @@
 <script>
 
 	$(function(){
-		var stergeCelule=function(){
+		/*var stergeCelule=function(){
 			$(this).html(' ');
 		var non_empty_cell = 0;
 			$(this).siblings().each(function(){
@@ -81,7 +81,24 @@
 			if(non_empty_cell === 0){
 				$(this).parent().remove();
 			}
-		};
+		};*/
+				$('td').dblclick(function(){
+			var ref=$(this);
+			var val=$(this).text();
+			ref.text("");
+			var tempInput=$('<input>').attr('type','text').attr('value',val);
+			ref.append(tempInput);
+
+			tempInput.keypress(function(keyEvent){
+				if(keyEvent.which === 13){
+					ref.text(tempInput.val());
+				}
+
+			});
+
+		});
+
+
 	$('#form1').submit(function(e){
 		e.preventDefault();
 		var nume=$('#nume').val();
@@ -90,13 +107,15 @@
 		
 		$('tbody tr:last').after('<tr>'+'<td>'+nume+'</td>'+'<td>'+prenume+'</td>'+'<td>'+facultate+'</td>'+'</tr>');
 
-		$('td').click(stergeCelule);
-	});
+		//$('td').click(stergeCelule);
 
-	$('td').click(stergeCelule);
 		
-		
+	});
 });
+
+	//$('td').click(stergeCelule);
+		
+	
 
 </script>
 </head>
